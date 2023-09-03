@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dmtueo6xkvkuh"]
+[gd_scene load_steps=17 format=3 uid="uid://dmtueo6xkvkuh"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_qsbrd"]
 [ext_resource type="Texture2D" uid="uid://crvg6knbevvu0" path="res://sprites/Char_3.png" id="2_guqlu"]
@@ -7,16 +7,31 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iao4s"]
 height = 48.0
 
+[sub_resource type="Animation" id="Animation_pmpkq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivote/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [79]
+}
+
 [sub_resource type="Animation" id="Animation_pwjsa"]
 resource_name = "idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Pivote/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.9),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
@@ -27,22 +42,7 @@ resource_name = "light"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.8),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [79]
-}
-
-[sub_resource type="Animation" id="Animation_pmpkq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Pivote/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -59,45 +59,55 @@ _data = {
 "light": SubResource("Animation_xi3su")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mm127"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n2er5"]
 animation = &"idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2vify"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iauj1"]
 animation = &"light"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2iir7"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_trhgw"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gwjqj"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ftsc8"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_73k4r"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nslc0"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jx8tn"]
-states/idle/node = SubResource("AnimationNodeAnimation_mm127")
-states/idle/position = Vector2(404, 92)
-states/light/node = SubResource("AnimationNodeAnimation_2vify")
-states/light/position = Vector2(601, 92)
-transitions = ["idle", "light", SubResource("AnimationNodeStateMachineTransition_2iir7"), "light", "idle", SubResource("AnimationNodeStateMachineTransition_73k4r"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_nslc0")]
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_g30kp"]
+states/idle/node = SubResource("AnimationNodeAnimation_n2er5")
+states/idle/position = Vector2(411, 100)
+states/light/node = SubResource("AnimationNodeAnimation_iauj1")
+states/light/position = Vector2(606, 100)
+transitions = ["idle", "light", SubResource("AnimationNodeStateMachineTransition_trhgw"), "light", "idle", SubResource("AnimationNodeStateMachineTransition_gwjqj"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_ftsc8")]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ct5aa"]
 size = Vector2(421, 42)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1f2i0"]
+
 [node name="Main" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(172, 203)
 script = ExtResource("1_qsbrd")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
+[node name="Pivote" type="Node2D" parent="Player"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Pivote"]
 texture = ExtResource("2_guqlu")
 hframes = 18
 vframes = 16
 frame = 79
 
+[node name="Rayo" type="RayCast2D" parent="Player/Pivote"]
+position = Vector2(0, 4)
+target_position = Vector2(200, 0)
+
+[node name="Line2D" type="Line2D" parent="Player/Pivote/Rayo"]
+points = PackedVector2Array(0, 0, 0, 0, 87.7145, 0, 200, 0)
+width = 1.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-visible = false
 position = Vector2(-1, -2)
 shape = SubResource("CapsuleShape2D_iao4s")
 
@@ -107,17 +117,48 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="Player"]
-tree_root = SubResource("AnimationNodeStateMachine_jx8tn")
+tree_root = SubResource("AnimationNodeStateMachine_g30kp")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Piso" type="StaticBody2D" parent="."]
 position = Vector2(252, 281)
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Piso"]
 scale = Vector2(3.28906, 0.328125)
 texture = ExtResource("2_lbia2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piso"]
+visible = false
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_ct5aa")
+
+[node name="Cajita con gravedad" type="RigidBody2D" parent="."]
+position = Vector2(322, 199)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Cajita con gravedad"]
+modulate = Color(1, 0.0509804, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_lbia2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cajita con gravedad"]
+visible = false
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_1f2i0")
+
+[node name="Cajita estatica" type="StaticBody2D" parent="."]
+position = Vector2(322, 199)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Cajita estatica"]
+modulate = Color(1, 0.0509804, 0, 1)
+position = Vector2(-229, -88)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_lbia2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cajita estatica"]
+visible = false
+position = Vector2(-229, -88)
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_1f2i0")
