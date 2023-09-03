@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://dmtueo6xkvkuh"]
+[gd_scene load_steps=18 format=3 uid="uid://dmtueo6xkvkuh"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_qsbrd"]
 [ext_resource type="Texture2D" uid="uid://crvg6knbevvu0" path="res://sprites/Char_3.png" id="2_guqlu"]
 [ext_resource type="Texture2D" uid="uid://b3qlppn3kw1mc" path="res://icon.svg" id="2_lbia2"]
+[ext_resource type="Script" path="res://Rayo.gd" id="3_67rsg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iao4s"]
 height = 48.0
@@ -87,7 +88,7 @@ size = Vector2(421, 42)
 [node name="Main" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(172, 203)
+position = Vector2(202, 190)
 script = ExtResource("1_qsbrd")
 metadata/_edit_group_ = true
 
@@ -102,12 +103,15 @@ frame = 79
 [node name="Rayo" type="RayCast2D" parent="Player/Pivote"]
 position = Vector2(0, 4)
 target_position = Vector2(200, 0)
+script = ExtResource("3_67rsg")
+metadata/_edit_group_ = true
 
 [node name="Line2D" type="Line2D" parent="Player/Pivote/Rayo"]
-points = PackedVector2Array(0, 0, 0, 0, 87.7145, 0, 200, 0)
+points = PackedVector2Array(0, 0, 10, 0)
 width = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+visible = false
 position = Vector2(-1, -2)
 shape = SubResource("CapsuleShape2D_iao4s")
 
@@ -134,7 +138,7 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_ct5aa")
 
 [node name="Cajita con gravedad" type="RigidBody2D" parent="."]
-position = Vector2(322, 199)
+position = Vector2(341, 200)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Cajita con gravedad"]
@@ -148,17 +152,15 @@ scale = Vector2(3.2, 3.2)
 shape = SubResource("RectangleShape2D_1f2i0")
 
 [node name="Cajita estatica" type="StaticBody2D" parent="."]
-position = Vector2(322, 199)
+position = Vector2(135, 159)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Cajita estatica"]
 modulate = Color(1, 0.0509804, 0, 1)
-position = Vector2(-229, -88)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_lbia2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cajita estatica"]
 visible = false
-position = Vector2(-229, -88)
 scale = Vector2(3.2, 3.2)
 shape = SubResource("RectangleShape2D_1f2i0")
