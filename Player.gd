@@ -32,18 +32,6 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	"""
-	#Pruebas del Raycast
-	var space_state = get_world_2d().direct_space_state
-	var x_rayo1 = global_position.x + (200*sign_Move_input)
-	var y_rayo1 = global_position.y + 4
-	var query = PhysicsRayQueryParameters2D.create(global_position,Vector2(x_rayo1,y_rayo1))
-	query.exclude = [self]
-	var result = space_state.intersect_ray(query)
-	if result:
-		print("Hit at point: ", result.position)
-	"""
-	
 	
 	
 	#ANIMACIONES	

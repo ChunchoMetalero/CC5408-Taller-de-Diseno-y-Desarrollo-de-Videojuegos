@@ -5,9 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://b3qlppn3kw1mc" path="res://icon.svg" id="2_lbia2"]
 [ext_resource type="Script" path="res://Rayo.gd" id="3_67rsg"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iao4s"]
-height = 48.0
-
 [sub_resource type="Animation" id="Animation_pmpkq"]
 length = 0.001
 tracks/0/type = "value"
@@ -80,6 +77,10 @@ states/light/node = SubResource("AnimationNodeAnimation_iauj1")
 states/light/position = Vector2(606, 100)
 transitions = ["idle", "light", SubResource("AnimationNodeStateMachineTransition_trhgw"), "light", "idle", SubResource("AnimationNodeStateMachineTransition_gwjqj"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_ftsc8")]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iao4s"]
+radius = 9.0
+height = 44.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ct5aa"]
 size = Vector2(421, 42)
 
@@ -88,7 +89,7 @@ size = Vector2(421, 42)
 [node name="Main" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(202, 190)
+position = Vector2(214, 85)
 script = ExtResource("1_qsbrd")
 metadata/_edit_group_ = true
 
@@ -102,18 +103,12 @@ frame = 79
 
 [node name="Rayo" type="RayCast2D" parent="Player/Pivote"]
 position = Vector2(0, 4)
-target_position = Vector2(200, 0)
 script = ExtResource("3_67rsg")
 metadata/_edit_group_ = true
 
-[node name="Line2D" type="Line2D" parent="Player/Pivote/Rayo"]
-points = PackedVector2Array(0, 0, 10, 0)
+[node name="Line2D" type="Line2D" parent="Player/Pivote"]
+position = Vector2(0, 4)
 width = 1.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-visible = false
-position = Vector2(-1, -2)
-shape = SubResource("CapsuleShape2D_iao4s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 libraries = {
@@ -124,8 +119,11 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_g30kp")
 anim_player = NodePath("../AnimationPlayer")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CapsuleShape2D_iao4s")
+
 [node name="Piso" type="StaticBody2D" parent="."]
-position = Vector2(252, 281)
+position = Vector2(262, 190)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Piso"]
@@ -138,7 +136,7 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_ct5aa")
 
 [node name="Cajita con gravedad" type="RigidBody2D" parent="."]
-position = Vector2(341, 200)
+position = Vector2(401, 119)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Cajita con gravedad"]
@@ -152,7 +150,7 @@ scale = Vector2(3.2, 3.2)
 shape = SubResource("RectangleShape2D_1f2i0")
 
 [node name="Cajita estatica" type="StaticBody2D" parent="."]
-position = Vector2(135, 159)
+position = Vector2(99, 103)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Cajita estatica"]
