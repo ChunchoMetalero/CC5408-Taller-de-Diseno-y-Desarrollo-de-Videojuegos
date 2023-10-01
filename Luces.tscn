@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://du450i03fykos"]
+[gd_scene load_steps=6 format=3 uid="uid://du450i03fykos"]
 
 [ext_resource type="Script" path="res://Lantern.gd" id="1_4i2tt"]
 [ext_resource type="Texture2D" uid="uid://oq13vie0l2tx" path="res://sprites/Flashlight.png" id="2_drlxr"]
@@ -7,10 +7,22 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pb7j8"]
 size = Vector2(83, 86)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5kg11"]
+radius = 42.19
+
 [node name="Luces" type="Node2D"]
 
+[node name="Lantern" type="StaticBody2D" parent="."]
+position = Vector2(87, 146)
+script = ExtResource("1_4i2tt")
+metadata/_edit_group_ = true
+
+[node name="Flashlight" type="Sprite2D" parent="Lantern"]
+scale = Vector2(0.121582, 0.103027)
+texture = ExtResource("2_drlxr")
+
 [node name="Cajita" type="StaticBody2D" parent="."]
-position = Vector2(587, 338)
+position = Vector2(289, 39)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Cajita"]
@@ -21,7 +33,7 @@ texture = ExtResource("3_mlp81")
 shape = SubResource("RectangleShape2D_pb7j8")
 
 [node name="Cajita2" type="StaticBody2D" parent="."]
-position = Vector2(333, 138)
+position = Vector2(160, 226)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Cajita2"]
@@ -31,11 +43,9 @@ texture = ExtResource("3_mlp81")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cajita2"]
 shape = SubResource("RectangleShape2D_pb7j8")
 
-[node name="Lantern" type="StaticBody2D" parent="."]
-position = Vector2(87, 146)
-script = ExtResource("1_4i2tt")
+[node name="Cajita3" type="StaticBody2D" parent="."]
+position = Vector2(294, 150)
 metadata/_edit_group_ = true
 
-[node name="Flashlight" type="Sprite2D" parent="Lantern"]
-scale = Vector2(0.121582, 0.103027)
-texture = ExtResource("2_drlxr")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cajita3"]
+shape = SubResource("CircleShape2D_5kg11")
