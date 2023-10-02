@@ -1,10 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://pa53ixw20x3l"]
+[gd_scene load_steps=2 format=3 uid="uid://pa53ixw20x3l"]
 
-[ext_resource type="FontFile" uid="uid://bl34tefqffycy" path="res://assets/fonts/Craft3D.otf" id="1_dxhux"]
-
-[sub_resource type="Theme" id="Theme_6krwq"]
-default_font = ExtResource("1_dxhux")
-default_font_size = 50
+[ext_resource type="Theme" uid="uid://m5wwgto5xgar" path="res://Themes/titulo.tres" id="1_thtou"]
 
 [node name="Menu_Principal" type="MarginContainer"]
 anchors_preset = 15
@@ -32,7 +28,7 @@ size_flags_vertical = 4
 [node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme = SubResource("Theme_6krwq")
+theme = ExtResource("1_thtou")
 text = "Ardilla"
 
 [node name="Button" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
