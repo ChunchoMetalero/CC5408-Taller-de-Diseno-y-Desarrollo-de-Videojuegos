@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dmtueo6xkvkuh"]
+[gd_scene load_steps=18 format=3 uid="uid://dmtueo6xkvkuh"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_qsbrd"]
 [ext_resource type="Texture2D" uid="uid://crvg6knbevvu0" path="res://sprites/Char_3.png" id="2_guqlu"]
@@ -90,7 +90,7 @@ size = Vector2(421, 42)
 [node name="Main" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(218, 84)
+position = Vector2(214, 85)
 script = ExtResource("1_qsbrd")
 metadata/_edit_group_ = true
 
