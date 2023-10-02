@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b3qlppn3kw1mc" path="res://icon.svg" id="2_lbia2"]
 [ext_resource type="Script" path="res://Rayo.gd" id="3_67rsg"]
 [ext_resource type="Texture2D" uid="uid://blgsl78qdj5et" path="res://sprites/Flashlight_wide_range_sprite_sheet.png" id="4_763wj"]
+[ext_resource type="Texture2D" uid="uid://dtcpwet52klsn" path="res://resources/2d_lights_and_shadows_neutral_point_light.webp" id="5_m7c1n"]
 
 [sub_resource type="Animation" id="Animation_pmpkq"]
 length = 0.001
