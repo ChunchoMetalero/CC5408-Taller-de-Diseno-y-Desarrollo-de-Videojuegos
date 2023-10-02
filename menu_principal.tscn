@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://pa53ixw20x3l"]
+
+[ext_resource type="FontFile" uid="uid://bl34tefqffycy" path="res://assets/fonts/Craft3D.otf" id="1_dxhux"]
+
+[sub_resource type="Theme" id="Theme_6krwq"]
+default_font = ExtResource("1_dxhux")
+default_font_size = 50
+
+[node name="Menu_Principal" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_6krwq")
+text = "Ardilla"
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Iniciar"
+
+[node name="Button2" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Niveles"
+
+[node name="Button3" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Configuración"
+
+[node name="Button4" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Creditos"
+
+[node name="Button5" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Salir"
