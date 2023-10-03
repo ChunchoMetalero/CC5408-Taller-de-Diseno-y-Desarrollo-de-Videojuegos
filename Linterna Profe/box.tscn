@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1mg15ure05en"]
+
+[ext_resource type="Script" path="res://Linterna Profe/box.gd" id="1_x6jh8"]
+[ext_resource type="Texture2D" uid="uid://b3qlppn3kw1mc" path="res://icon.svg" id="2_fuw2w"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tlcw6"]
+polygon = PackedVector2Array(-64, -64, -64, 64, 64, 64, 64, -64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s71t2"]
+size = Vector2(128, 128)
+
+[node name="Box" type="StaticBody2D"]
+script = ExtResource("1_x6jh8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fuw2w")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_tlcw6")
+occluder_light_mask = 1023
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_s71t2")
+
+[node name="Vertices" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Vertices"]
+position = Vector2(-64, -64)
+
+[node name="Marker2D2" type="Marker2D" parent="Vertices"]
+position = Vector2(64, -64)
+
+[node name="Marker2D3" type="Marker2D" parent="Vertices"]
+position = Vector2(64, 64)
+
+[node name="Marker2D4" type="Marker2D" parent="Vertices"]
+position = Vector2(-64, 64)
+
+[node name="TestLineA" type="Line2D" parent="."]
+width = 5.0
+default_color = Color(1, 0, 1, 1)
+
+[node name="TestLineB" type="Line2D" parent="."]
+width = 5.0
+default_color = Color(1, 0, 1, 1)

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dev10qbsghjw5"]
+
+[ext_resource type="Texture2D" uid="uid://b3qlppn3kw1mc" path="res://icon.svg" id="1_qgk0m"]
+[ext_resource type="PackedScene" uid="uid://dwv5kn8pv8mya" path="res://Linterna Profe/luz.tscn" id="2_7cq45"]
+[ext_resource type="PackedScene" uid="uid://c1mg15ure05en" path="res://Linterna Profe/box.tscn" id="3_i04nc"]
+
+[node name="Luces v2" type="Node2D"]
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(558, 770)
+scale = Vector2(41.5215, 29.2256)
+texture = ExtResource("1_qgk0m")
+metadata/_edit_lock_ = true
+
+[node name="Box" parent="." instance=ExtResource("3_i04nc")]
+position = Vector2(436, 139)
+rotation = -3.64076
+scale = Vector2(0.3, 0.3)
+
+[node name="Luz" parent="." instance=ExtResource("2_7cq45")]
+position = Vector2(256, 141)
+metadata/_edit_lock_ = true
