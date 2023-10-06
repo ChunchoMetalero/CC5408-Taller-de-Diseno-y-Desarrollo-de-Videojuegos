@@ -6,6 +6,7 @@ extends StaticBody2D
 
 @onready var test_line_a: Line2D = $TestLineA
 @onready var test_line_b: Line2D = $TestLineB
+@onready var colision_sombra: CollisionPolygon2D = $Sombra/ColisionSombra
 
 func _ready() -> void:
 	test_line_a.top_level = true
@@ -18,9 +19,15 @@ func get_vertices() -> Array[Vector2]:
 	return result
 
 func create_collision(center: Vector2, vertex_a: Vector2, vertex_b: Vector2) -> void:
-	test_line_a.clear_points()
-	test_line_a.add_point(vertex_a)
-	test_line_a.add_point(test_line_a.points[0] + center.direction_to(vertex_a) * 50)
-	test_line_b.clear_points()
-	test_line_b.add_point(vertex_b)
-	test_line_b.add_point(test_line_b.points[0] + center.direction_to(vertex_b) * 50)
+	var vertices_detectados = [vertex_a,vertex_b]
+	var paquete_vertices = PackedVector2Array()
+	paquete_vertices.append(vertex_a)
+	var largo_luz = 256
+	for vertice in vertices_detectados:
+		var angulo = atan(vertice.y/vertice.x)		
+		var u = center.x + (cos(angulo) * largo_luz)
+		var w = center.y + (sin(angulo) * largo_luz)
+		paquete_vertices.append(Vector2(u,w))
+	paquete_vertices.append(vertex_b)
+	colision_sombra.polygon = paquete_vertices
+	

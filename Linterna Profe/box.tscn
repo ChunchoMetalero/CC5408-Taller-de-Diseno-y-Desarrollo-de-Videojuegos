@@ -12,7 +12,7 @@ size = Vector2(128, 128)
 [node name="Box" type="StaticBody2D"]
 script = ExtResource("1_x6jh8")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Fondo" type="Sprite2D" parent="."]
 texture = ExtResource("2_fuw2w")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
@@ -43,3 +43,9 @@ default_color = Color(1, 0, 1, 1)
 [node name="TestLineB" type="Line2D" parent="."]
 width = 5.0
 default_color = Color(1, 0, 1, 1)
+
+[node name="Sombra" type="StaticBody2D" parent="."]
+position = Vector2(2, -1)
+
+[node name="ColisionSombra" type="CollisionPolygon2D" parent="Sombra"]
+position = Vector2(-2, 1)

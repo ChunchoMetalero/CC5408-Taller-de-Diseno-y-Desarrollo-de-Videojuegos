@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b3qlppn3kw1mc" path="res://icon.svg" id="3_2so02"]
 
 [node name="Luz" type="PointLight2D"]
+shadow_enabled = true
 texture = ExtResource("1_ie7dx")
 texture_scale = 2.0
 script = ExtResource("2_7ck37")
@@ -21,6 +22,8 @@ scale = Vector2(41.5215, 29.2256)
 texture = ExtResource("3_2so02")
 
 [node name="Line2D" type="Line2D" parent="."]
+position = Vector2(-0.00387597, 0)
+scale = Vector2(0.996124, 1)
 points = PackedVector2Array(0, 0, 256, 0)
 width = 1.0
 
