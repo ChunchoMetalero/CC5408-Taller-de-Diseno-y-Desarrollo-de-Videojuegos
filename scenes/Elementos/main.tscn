@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmtueo6xkvkuh"]
+
+[ext_resource type="PackedScene" uid="uid://duhxccdq5wmyj" path="res://scenes/Elementos/player.tscn" id="1_2vbil"]
+[ext_resource type="PackedScene" uid="uid://bicig0mpcdtku" path="res://scenes/Elementos/linterna.tscn" id="3_ovpcr"]
+[ext_resource type="Texture2D" uid="uid://b3qlppn3kw1mc" path="res://icon.svg" id="6_ni4kg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ct5aa"]
+size = Vector2(421, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1f2i0"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_2vbil")]
+
+[node name="Piso" type="StaticBody2D" parent="."]
+position = Vector2(262, 190)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Piso"]
+scale = Vector2(3.28906, 0.328125)
+texture = ExtResource("6_ni4kg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piso"]
+visible = false
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_ct5aa")
+
+[node name="Cajita con gravedad" type="RigidBody2D" parent="."]
+position = Vector2(401, 119)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Cajita con gravedad"]
+modulate = Color(1, 0.0509804, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_ni4kg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cajita con gravedad"]
+visible = false
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_1f2i0")
+
+[node name="Cajita estatica" type="StaticBody2D" parent="."]
+position = Vector2(107, 105)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Cajita estatica"]
+modulate = Color(1, 0.0509804, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_ni4kg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cajita estatica"]
+visible = false
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_1f2i0")
+
+[node name="linterna" parent="." instance=ExtResource("3_ovpcr")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.431373, 0.431373, 0.431373, 1)
+
+[node name="Piso2" type="StaticBody2D" parent="."]
+position = Vector2(699, 47)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Piso2"]
+scale = Vector2(3.28906, 0.328125)
+texture = ExtResource("6_ni4kg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piso2"]
+visible = false
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_ct5aa")
+
+[node name="Cajita estatica2" type="StaticBody2D" parent="."]
+position = Vector2(1051, 4)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Cajita estatica2"]
+modulate = Color(1, 0.0509804, 0, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_ni4kg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cajita estatica2"]
+visible = false
+scale = Vector2(3.2, 3.2)
+shape = SubResource("RectangleShape2D_1f2i0")
