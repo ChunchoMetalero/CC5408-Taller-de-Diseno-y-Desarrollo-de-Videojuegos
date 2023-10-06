@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwv5kn8pv8mya"]
+
+[ext_resource type="Texture2D" uid="uid://j1koo2eb8wwy" path="res://assets/cone.png" id="1_ie7dx"]
+[ext_resource type="Script" path="res://Linterna Profe/luz.gd" id="2_7ck37"]
+[ext_resource type="Texture2D" uid="uid://b3qlppn3kw1mc" path="res://icon.svg" id="3_2so02"]
+
+[node name="Luz" type="PointLight2D"]
+shadow_enabled = true
+texture = ExtResource("1_ie7dx")
+texture_scale = 2.0
+script = ExtResource("2_7ck37")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(50, -26, 204, -103, 229, -78, 246, -50, 255, -14, 255, 15, 246, 50, 227, 81, 204, 103, 49, 26, 62, -1)
+
+[node name="Cono" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1869, 1272)
+scale = Vector2(41.5215, 29.2256)
+texture = ExtResource("3_2so02")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(-0.00387597, 0)
+scale = Vector2(0.996124, 1)
+points = PackedVector2Array(0, 0, 256, 0)
+width = 1.0
+
+[node name="DebugLine" type="Line2D" parent="."]

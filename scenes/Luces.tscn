@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://du450i03fykos"]
 
-[ext_resource type="Script" path="res://Lantern.gd" id="1_4i2tt"]
+[ext_resource type="Script" path="res://scenes/Lantern.gd" id="1_4i2tt"]
 [ext_resource type="Texture2D" uid="uid://oq13vie0l2tx" path="res://sprites/Flashlight.png" id="2_drlxr"]
 [ext_resource type="Texture2D" uid="uid://b3qlppn3kw1mc" path="res://icon.svg" id="3_mlp81"]
 
