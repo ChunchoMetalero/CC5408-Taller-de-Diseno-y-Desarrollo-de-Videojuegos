@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmtueo6xkvkuh"]
+[gd_scene load_steps=8 format=3 uid="uid://dmtueo6xkvkuh"]
 
 [ext_resource type="PackedScene" uid="uid://duhxccdq5wmyj" path="res://scenes/Elementos/player.tscn" id="1_2vbil"]
 [ext_resource type="PackedScene" uid="uid://bicig0mpcdtku" path="res://scenes/Elementos/linterna.tscn" id="3_ovpcr"]
+[ext_resource type="Texture2D" uid="uid://k58xxsxfywwm" path="res://resources/caverns-files-web/layers/background.png" id="4_udeyk"]
+[ext_resource type="Texture2D" uid="uid://dlc5umrgku56x" path="res://resources/caverns-files-web/layers/back-walls.png" id="5_7bh8n"]
 [ext_resource type="Texture2D" uid="uid://b3qlppn3kw1mc" path="res://icon.svg" id="6_ni4kg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ct5aa"]
@@ -57,9 +59,6 @@ shape = SubResource("RectangleShape2D_1f2i0")
 
 [node name="linterna" parent="." instance=ExtResource("3_ovpcr")]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.431373, 0.431373, 0.431373, 1)
-
 [node name="Piso2" type="StaticBody2D" parent="."]
 position = Vector2(699, 47)
 metadata/_edit_group_ = true
@@ -86,3 +85,26 @@ texture = ExtResource("6_ni4kg")
 visible = false
 scale = Vector2(3.2, 3.2)
 shape = SubResource("RectangleShape2D_1f2i0")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.431373, 0.431373, 0.431373, 1)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(512, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-1.52588e-05, 0)
+scale = Vector2(2.70833, 1)
+texture = ExtResource("4_udeyk")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(512, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("5_7bh8n")
+centered = false
