@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dev10qbsghjw5"]
+[gd_scene load_steps=6 format=3 uid="uid://dev10qbsghjw5"]
 
 [ext_resource type="Texture2D" uid="uid://b3qlppn3kw1mc" path="res://icon.svg" id="1_qgk0m"]
 [ext_resource type="PackedScene" uid="uid://dwv5kn8pv8mya" path="res://Linterna Profe/luz.tscn" id="2_7cq45"]
 [ext_resource type="PackedScene" uid="uid://c1mg15ure05en" path="res://Linterna Profe/box.tscn" id="3_i04nc"]
+[ext_resource type="PackedScene" uid="uid://duhxccdq5wmyj" path="res://scenes/Elementos/player.tscn" id="4_j65vx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eh3kr"]
+size = Vector2(127, 36)
 
 [node name="Luces v2" type="Node2D"]
 
@@ -20,3 +24,22 @@ scale = Vector2(0.3, 0.3)
 [node name="Luz" parent="." instance=ExtResource("2_7cq45")]
 position = Vector2(85, 140)
 metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("4_j65vx")]
+position = Vector2(119, 33)
+scale = Vector2(0.7, 0.7)
+
+[node name="Piso" type="StaticBody2D" parent="."]
+position = Vector2(77, 85)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piso"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_eh3kr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Piso"]
+scale = Vector2(1, 0.289063)
+texture = ExtResource("1_qgk0m")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(275, 118, 320, 241, 299, 280, 259, 170)

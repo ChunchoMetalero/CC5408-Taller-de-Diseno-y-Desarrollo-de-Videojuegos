@@ -12,6 +12,7 @@ size = Vector2(421, 42)
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_2vbil")]
+position = Vector2(214, 122)
 
 [node name="Piso" type="StaticBody2D" parent="."]
 position = Vector2(262, 190)

@@ -25,8 +25,8 @@ func create_collision(center: Vector2, vertex_a: Vector2, vertex_b: Vector2) -> 
 	var largo_luz = 256
 	for vertice in vertices_detectados:
 		var angulo = atan(vertice.y/vertice.x)		
-		var u = center.x + (cos(angulo) * largo_luz)
-		var w = center.y + (sin(angulo) * largo_luz)
+		var u = (cos(angulo) * largo_luz) + global_position.x
+		var w = (sin(angulo) * largo_luz) + global_position.y
 		paquete_vertices.append(Vector2(u,w))
 	paquete_vertices.append(vertex_b)
 	colision_sombra.polygon = paquete_vertices
