@@ -5,6 +5,7 @@ var gravity = 400
 var jump_speed = 250
 var aceleration = 10000
 
+var current_pickable: Pickable = null
 
 #REFERENCIAS
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -17,6 +18,15 @@ var aceleration = 10000
 @onready var rayo: RayCast2D = $Pivote/Rayo
 
 @onready var conlinterna: bool = false
+
+@onready var pickable_area: PickableArea = $Pivote/LanternPickArea
+
+@onready var pickable_marker = $Pivote/PickableMarker
+@onready var pickable_drop_marker = $Pivote/PickableDropMarker
+
+
+
+
 
 func _ready() -> void:
 	animation_tree.active = true
@@ -44,18 +54,23 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	#Tomar y dejar la linterna
-	if Input.is_action_just_pressed("lantern"):
-		if tomar():
-			conlinterna = true
-			playback.travel("lantern")
 	
-	if Input.is_action_just_pressed("drop"):
-		if conlinterna:
-			conlinterna = false
-			playback.travel("drop")
-			playback.travel("idle")
-		
+	####  Tomar y dejar la linterna ####
+	# if Input.is_action_just_pressed("lantern"):
+	#	if tomar():
+	#		conlinterna = true
+	#		playback.travel("lantern")
+	
+	#if Input.is_action_just_pressed("drop"):
+	#	if conlinterna:
+	#		conlinterna = false
+	#		playback.travel("drop")
+	#		playback.travel("idle")
+	if Input.is_action_just_pressed("interact"):
+		interact()
+	
+
+	
 	#Prender la linterna
 	if Input.is_action_pressed("light") and conlinterna:
 		rayo.prender_linterna()
@@ -75,4 +90,13 @@ func _physics_process(delta):
 
 		
 		
+
+func interact():
+	var pickable: Pickable = pickable_area.get_pickable()
+	if current_pickable:
+		current_pickable.drop(get_parent(), pickable_drop_marker.global_position)
+		current_pickable = null
+	elif pickable:
+		current_pickable = pickable
+		pickable.pick(pivote, pickable_marker.global_position)
 
