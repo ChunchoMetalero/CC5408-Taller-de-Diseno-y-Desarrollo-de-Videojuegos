@@ -49,3 +49,5 @@ position = Vector2(2, -1)
 
 [node name="ColisionSombra" type="CollisionPolygon2D" parent="Sombra"]
 position = Vector2(-2, 1)
+
+[node name="SombraVisible" type="Polygon2D" parent="Sombra"]

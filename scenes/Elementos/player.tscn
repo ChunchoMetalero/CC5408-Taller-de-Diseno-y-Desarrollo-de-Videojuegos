@@ -277,6 +277,7 @@ vframes = 3
 frame = 3
 
 [node name="PointLight2D" type="PointLight2D" parent="Pivote"]
+visible = false
 position = Vector2(4.115, 0)
 energy = 16.0
 texture = ExtResource("5_sh10a")
