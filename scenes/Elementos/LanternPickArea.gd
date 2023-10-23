@@ -1,4 +1,4 @@
-class_name PickableArea
+class_name LanternPickableArea2
 extends Area2D
 
 var pickables: Array[Pickable] = []

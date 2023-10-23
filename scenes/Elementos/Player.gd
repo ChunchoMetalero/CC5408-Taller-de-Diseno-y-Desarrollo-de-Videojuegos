@@ -19,7 +19,7 @@ var current_pickable: Pickable = null
 
 @onready var conlinterna: bool = false
 
-@onready var pickable_area: PickableArea = $Pivote/LanternPickArea
+@onready var pickable_area: LanternPickableArea2 = $Pivote/LanternPickArea
 
 @onready var pickable_marker = $Pivote/PickableMarker
 @onready var pickable_drop_marker = $Pivote/PickableDropMarker
