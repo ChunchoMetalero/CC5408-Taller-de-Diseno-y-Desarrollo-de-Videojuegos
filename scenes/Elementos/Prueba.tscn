@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cebv5tsxrs84i"]
+
+[ext_resource type="Script" path="res://scenes/Elementos/Area2D.gd" id="1_6dadw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_buco7"]
+
+[node name="Prueba" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_6dadw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, 0, 54, -31, 72, 0, 56, 27)
+
+[node name="Marker2D" type="Marker2D" parent="Area2D"]
+position = Vector2(54, -31)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(24, -21)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_buco7")

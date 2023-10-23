@@ -17,7 +17,7 @@ texture = ExtResource("1_qgk0m")
 metadata/_edit_lock_ = true
 
 [node name="Box" parent="." instance=ExtResource("3_i04nc")]
-position = Vector2(255, 141)
+position = Vector2(208, 119)
 rotation = -0.829031
 scale = Vector2(0.2, 0.2)
 
@@ -30,7 +30,7 @@ position = Vector2(86, 26)
 scale = Vector2(0.7, 0.7)
 
 [node name="Piso" type="StaticBody2D" parent="."]
-position = Vector2(77, 85)
+position = Vector2(77, 86)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Piso"]
@@ -42,6 +42,6 @@ scale = Vector2(1, 0.289063)
 texture = ExtResource("1_qgk0m")
 
 [node name="Box2" parent="." instance=ExtResource("3_i04nc")]
-position = Vector2(222, 15)
+position = Vector2(278, 96)
 rotation = -0.829031
 scale = Vector2(0.2, 0.2)

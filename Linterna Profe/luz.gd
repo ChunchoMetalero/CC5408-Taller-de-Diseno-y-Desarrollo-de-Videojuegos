@@ -1,20 +1,34 @@
 extends PointLight2D
 
 
-@onready var debug_line: Line2D = $DebugLine
-
-const TOLERANCE = 0.1
 @onready var area_2d: Area2D = $Area2D
+@onready var collision_area: CollisionPolygon2D = $Area2D/CollisionPolygon2D
+
 var boxes: Array[Box]
+var perimeter_segments
+const TOLERANCE = 0.1
+
 
 func _ready() -> void:
 	area_2d.body_entered.connect(_on_body_entered)
 	area_2d.body_exited.connect(_on_body_exited)
+	var paquete_vertices = collision_area.get_polygon()
+	var num_segmentos = paquete_vertices.size()
+	perimeter_segments = []
+	for i in range(num_segmentos):
+		var point_a = paquete_vertices[i] + global_position
+		point_a = point_a
+		var point_b
+		if i == num_segmentos - 1:
+			point_b = paquete_vertices[0] + global_position
+		else:
+			point_b = paquete_vertices[i+1] + global_position
+		point_b = point_b
+		perimeter_segments.append([point_a, point_b])
+		
 
 
-func _physics_process(delta: float) -> void:
-	debug_line.clear_points()
-	
+func _physics_process(delta: float) -> void:	
 	for box in boxes:
 		var vertices = box.get_vertices()
 		var non_occluded_vertices: Array[Vector2] = []
@@ -32,7 +46,7 @@ func _physics_process(delta: float) -> void:
 		var y_axis = x_axis.rotated(PI/2)
 		var t = Transform2D(x_axis, y_axis, box.global_position)
 		if non_occluded_vertices.size() < 2:
-			continue
+			box.delete_collision()
 		var top_vertex_ty = 0
 		var bottom_vertex_ty = 0
 		var top_vertex
@@ -47,17 +61,23 @@ func _physics_process(delta: float) -> void:
 				bottom_vertex_ty = t_position.y
 				bottom_vertex = vertex
 		if top_vertex and bottom_vertex:
-			box.create_collision(global_position, top_vertex, bottom_vertex)
-#			debug_line.add_point(top_vertex - global_position)
-#			debug_line.add_point(bottom_vertex - global_position)
+			box.create_collision(global_position, top_vertex, bottom_vertex,perimeter_segments)
+
 				
 		
-		
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Imprimir"):
+		print(boxes)
 
 func _on_body_entered(body: Node) -> void:
-	var box = body as Box
-	if box:
-		boxes.push_back(box)
+	if body is Box:
+		boxes.append(body)
+		body.shadow_enabled = true
+		print("AAAA")
 
 func _on_body_exited(body: Node) -> void:
-	boxes.erase(body)
+	if body is Box:
+		print("BBB")
+		boxes.erase(body)
+		body.shadow_enabled = false
+		body.delete_collision()
