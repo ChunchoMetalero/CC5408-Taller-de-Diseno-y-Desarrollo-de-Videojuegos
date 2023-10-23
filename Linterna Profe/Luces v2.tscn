@@ -17,20 +17,20 @@ texture = ExtResource("1_qgk0m")
 metadata/_edit_lock_ = true
 
 [node name="Box" parent="." instance=ExtResource("3_i04nc")]
-position = Vector2(267, 144)
-rotation = 2.64243
-scale = Vector2(0.3, 0.3)
+position = Vector2(208, 119)
+rotation = -0.829031
+scale = Vector2(0.2, 0.2)
 
 [node name="Luz" parent="." instance=ExtResource("2_7cq45")]
 position = Vector2(85, 140)
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("4_j65vx")]
-position = Vector2(119, 33)
+position = Vector2(86, 26)
 scale = Vector2(0.7, 0.7)
 
 [node name="Piso" type="StaticBody2D" parent="."]
-position = Vector2(77, 85)
+position = Vector2(77, 86)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Piso"]
@@ -41,5 +41,7 @@ shape = SubResource("RectangleShape2D_eh3kr")
 scale = Vector2(1, 0.289063)
 texture = ExtResource("1_qgk0m")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(275, 118, 320, 241, 299, 280, 259, 170)
+[node name="Box2" parent="." instance=ExtResource("3_i04nc")]
+position = Vector2(278, 96)
+rotation = -0.829031
+scale = Vector2(0.2, 0.2)
