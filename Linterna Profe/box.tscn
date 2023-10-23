@@ -44,10 +44,7 @@ default_color = Color(1, 0, 1, 1)
 width = 5.0
 default_color = Color(1, 0, 1, 1)
 
-[node name="Sombra" type="StaticBody2D" parent="."]
+[node name="ColisionSombra" type="CollisionPolygon2D" parent="."]
+
+[node name="SombraVisible" type="Polygon2D" parent="."]
 position = Vector2(2, -1)
-
-[node name="ColisionSombra" type="CollisionPolygon2D" parent="Sombra"]
-position = Vector2(-2, 1)
-
-[node name="SombraVisible" type="Polygon2D" parent="Sombra"]

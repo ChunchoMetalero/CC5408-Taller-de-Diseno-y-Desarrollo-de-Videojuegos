@@ -1,6 +1,10 @@
 class_name Box
 extends StaticBody2D
 
+#SOMBRA:
+@onready var colision_sombra: CollisionPolygon2D = $ColisionSombra
+@onready var sombra_visible: Polygon2D = $SombraVisible
+
 @onready var vertices: Node2D = $Vertices
 @onready var test_line_a: Line2D = $TestLineA
 @onready var test_line_b: Line2D = $TestLineB
@@ -18,16 +22,23 @@ func get_vertices() -> Array[Vector2]:
 	return result
 
 func create_collision(center: Vector2, vertex_a: Vector2, vertex_b: Vector2,segmentos: Array) -> void:
+	var paquete_vertices = PackedVector2Array()
 	test_line_a.clear_points()	
 	var direction_A = center.direction_to(vertex_a).normalized()
 	var duplex_A = get_length_shadow(vertex_a, direction_A ,segmentos,"Sup")
-	test_line_a.add_point(duplex_A[0])
-	test_line_a.add_point(duplex_A[1])
+	#test_line_a.add_point(duplex_A[0])
+	#test_line_a.add_point(duplex_A[1])
 	test_line_b.clear_points()
 	var direction_B = center.direction_to(vertex_b).normalized()
 	var duplex_B = get_length_shadow(vertex_b, direction_B ,segmentos,"Bot")
-	test_line_b.add_point(duplex_B[0])
-	test_line_b.add_point(duplex_B[1])
+	#test_line_b.add_point(duplex_B[0])
+	#test_line_b.add_point(duplex_B[1])
+	paquete_vertices.append(to_local(duplex_A[0]))
+	paquete_vertices.append(to_local(duplex_A[1]))
+	paquete_vertices.append(to_local(duplex_B[1]))
+	paquete_vertices.append(to_local(duplex_B[0]))
+	colision_sombra.polygon = paquete_vertices
+	sombra_visible.polygon = paquete_vertices
 	
 	
 func get_length_shadow(from_to: Vector2, direction: Vector2,segmentos:Array,tipo:String):
@@ -67,5 +78,7 @@ func get_length_shadow(from_to: Vector2, direction: Vector2,segmentos:Array,tipo
 	
 	
 func delete_collision() ->void:
-	test_line_a.clear_points()
-	test_line_b.clear_points()
+	colision_sombra.polygon.clear()
+	sombra_visible.polygon.clear()
+	#test_line_a.clear_points()
+	#test_line_b.clear_points()
