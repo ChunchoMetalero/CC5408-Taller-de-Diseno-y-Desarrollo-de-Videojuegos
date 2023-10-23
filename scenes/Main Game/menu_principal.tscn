@@ -1,52 +1,83 @@
-[gd_scene load_steps=2 format=3 uid="uid://pa53ixw20x3l"]
+[gd_scene load_steps=5 format=3 uid="uid://pa53ixw20x3l"]
 
+[ext_resource type="Script" path="res://scenes/Main Game/menu_principal.gd" id="1_jtpnd"]
 [ext_resource type="Theme" uid="uid://m5wwgto5xgar" path="res://Themes/titulo.tres" id="1_thtou"]
+[ext_resource type="Texture2D" uid="uid://b27ncy7pin625" path="res://sprites/Fondo_ardilla.jpg" id="2_cyc4h"]
 
-[node name="Menu_Principal" type="MarginContainer"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qp0yg"]
+
+[node name="Control" type="Control"]
+material = SubResource("CanvasItemMaterial_qp0yg")
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jtpnd")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
+offset_right = 1024.0
+offset_bottom = 769.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_cyc4h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -101.0
+offset_right = 140.0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Iniciar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Nueva Partida"
+
+[node name="Niveles" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Seleccionar Nivel"
+
+[node name="Salir" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Salir del Juego"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -142.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Ajustes" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Ajustes"
+
+[node name="Créditos" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Créditos"
+
+[node name="Título" type="Label" parent="."]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.5
+offset_top = -34.5
+offset_right = 121.5
+offset_bottom = 34.5
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
 theme = ExtResource("1_thtou")
 text = "Ardilla"
 
-[node name="Button" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Iniciar"
-
-[node name="Button2" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Niveles"
-
-[node name="Button3" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Configuración"
-
-[node name="Button4" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Creditos"
-
-[node name="Button5" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Salir"
+[connection signal="pressed" from="VBoxContainer/Iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Niveles" to="." method="_on_niveles_pressed"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]
