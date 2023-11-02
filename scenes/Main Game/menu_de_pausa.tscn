@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjkxmhqddvfbm"]
+
+[ext_resource type="Script" path="res://Menu de pausa.gd" id="1_6kk7l"]
+[ext_resource type="PackedScene" uid="uid://pa53ixw20x3l" path="res://scenes/Main Game/menu_principal.tscn" id="2_npbk4"]
+
+[node name="Menu de pausa" type="MarginContainer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6kk7l")
+menu = ExtResource("2_npbk4")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Juego Pausado"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Reanudar" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Reanudar Juego"
+
+[node name="Nivel" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Seleccionar Nivel"
+
+[node name="Menu" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Volver al Menu"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Reanudar" to="." method="_on_reanudar_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Nivel" to="." method="_on_nivel_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]

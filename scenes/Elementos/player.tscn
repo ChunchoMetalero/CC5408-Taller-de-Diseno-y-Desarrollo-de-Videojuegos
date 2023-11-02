@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://duhxccdq5wmyj"]
+[gd_scene load_steps=28 format=3 uid="uid://duhxccdq5wmyj"]
 
 [ext_resource type="Script" path="res://scenes/Elementos/Player.gd" id="1_puclw"]
 [ext_resource type="Texture2D" uid="uid://crvg6knbevvu0" path="res://sprites/Char_3.png" id="2_oxces"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://blgsl78qdj5et" path="res://sprites/Flashlight_wide_range_sprite_sheet.png" id="4_u1amj"]
 [ext_resource type="Texture2D" uid="uid://dtcpwet52klsn" path="res://resources/2d_lights_and_shadows_neutral_point_light.webp" id="5_sh10a"]
 [ext_resource type="Script" path="res://scenes/Elementos/LanternPickArea.gd" id="6_eirrn"]
+[ext_resource type="PackedScene" uid="uid://cjkxmhqddvfbm" path="res://scenes/Main Game/menu_de_pausa.tscn" id="7_a16jx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4jfw"]
 size = Vector2(24, 20)
@@ -313,3 +314,6 @@ anim_player = NodePath("../AnimationPlayer")
 shape = SubResource("CapsuleShape2D_iao4s")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Menu de pausa" parent="." instance=ExtResource("7_a16jx")]
+size_flags_vertical = 4
