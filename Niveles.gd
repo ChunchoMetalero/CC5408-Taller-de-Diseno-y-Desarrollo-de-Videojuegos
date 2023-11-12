@@ -20,3 +20,7 @@ func _on_nivel_1_pressed():
 
 func _on_nivel_2_pressed():
 	get_tree().change_scene_to_file("res://Linterna Profe/Luces v2.tscn")
+
+
+func _on_volver_pressed():
+	get_tree().change_scene_to_file("res://scenes/Main Game/menu_principal.tscn")
