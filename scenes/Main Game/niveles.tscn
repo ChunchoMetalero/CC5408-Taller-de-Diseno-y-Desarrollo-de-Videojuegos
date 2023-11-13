@@ -41,6 +41,6 @@ text = "Menu Principal
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 1" to="." method="_on__pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 1" to="." method="_on_nivel_1_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 2" to="." method="_on_nivel_2_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 2" to="." method="_on__pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 2" to="." method="_on_nivel_2_pressed"]
 [connection signal="pressed" from="MarginContainer/Volver" to="." method="_on_volver_pressed"]

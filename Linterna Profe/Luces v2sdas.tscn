@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://6hnyxe2j8idp"]
+
+[ext_resource type="PackedScene" uid="uid://dwv5kn8pv8mya" path="res://Linterna Profe/luz.tscn" id="3_jotf7"]
+
+[node name="Luces v2" type="Node2D"]
+
+[node name="Luz" parent="." instance=ExtResource("3_jotf7")]
+position = Vector2(85, 140)
+metadata/_edit_lock_ = true

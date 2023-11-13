@@ -20,10 +20,12 @@ func _input(event):
 
 func _on_menu_pressed():
 	get_tree().change_scene_to_file("res://scenes/Main Game/menu_principal.tscn")
+	get_tree().paused = false
 
 
 func _on_nivel_pressed():
 	get_tree().change_scene_to_file("res://scenes/Main Game/niveles.tscn")
+	get_tree().paused = false
 
 
 func _on_reanudar_pressed():
