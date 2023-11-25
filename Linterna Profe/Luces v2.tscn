@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://b3qlppn3kw1mc" path="res://icon.svg" id="1_qgk0m"]
 [ext_resource type="PackedScene" uid="uid://dwv5kn8pv8mya" path="res://Linterna Profe/luz.tscn" id="2_7cq45"]
 [ext_resource type="PackedScene" uid="uid://c1mg15ure05en" path="res://Linterna Profe/box.tscn" id="3_i04nc"]
-[ext_resource type="PackedScene" uid="uid://duhxccdq5wmyj" path="res://scenes/Elementos/player.tscn" id="4_j65vx"]
+[ext_resource type="Script" path="res://Linterna Profe/boxtest.gd" id="5_e5t4h"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eh3kr"]
-size = Vector2(127, 36)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rflb0"]
+size = Vector2(123, 255)
 
 [node name="Luces v2" type="Node2D"]
 
@@ -17,56 +17,29 @@ texture = ExtResource("1_qgk0m")
 metadata/_edit_lock_ = true
 
 [node name="Box" parent="." instance=ExtResource("3_i04nc")]
-position = Vector2(167, 167)
+position = Vector2(235, 63)
 rotation = -0.829031
 scale = Vector2(0.2, 0.2)
+script = ExtResource("5_e5t4h")
 
 [node name="Luz" parent="." instance=ExtResource("2_7cq45")]
 position = Vector2(85, 140)
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." instance=ExtResource("4_j65vx")]
-position = Vector2(86, 26)
-scale = Vector2(0.7, 0.7)
-
-[node name="Piso" type="StaticBody2D" parent="."]
-position = Vector2(77, 86)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Piso"]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_eh3kr")
-
-[node name="Sprite2D" type="Sprite2D" parent="Piso"]
-scale = Vector2(1, 0.289063)
-texture = ExtResource("1_qgk0m")
-
 [node name="Box2" parent="." instance=ExtResource("3_i04nc")]
-position = Vector2(190, 82)
+position = Vector2(170, 160)
 rotation = -0.829031
 scale = Vector2(0.2, 0.2)
 
-[node name="Piso2" type="StaticBody2D" parent="."]
-position = Vector2(130, 217)
+[node name="NoBOX" type="StaticBody2D" parent="."]
+position = Vector2(98, 86)
+scale = Vector2(0.2, 0.2)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Piso2"]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_eh3kr")
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="NoBOX"]
+shape = SubResource("RectangleShape2D_rflb0")
 
-[node name="Sprite2D" type="Sprite2D" parent="Piso2"]
-scale = Vector2(1, 0.289063)
-texture = ExtResource("1_qgk0m")
-
-[node name="Piso3" type="StaticBody2D" parent="."]
-position = Vector2(368, 91)
-rotation = -1.55509
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Piso3"]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_eh3kr")
-
-[node name="Sprite2D" type="Sprite2D" parent="Piso3"]
-scale = Vector2(1, 0.289063)
+[node name="Sprite2D" type="Sprite2D" parent="NoBOX"]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(1, 2)
 texture = ExtResource("1_qgk0m")
