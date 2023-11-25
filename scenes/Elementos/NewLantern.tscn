@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2j36i8ofhdue"]
+
+[ext_resource type="Script" path="res://scenes/Elementos/NewLantern.gd" id="1_0hs6m"]
+[ext_resource type="Texture2D" uid="uid://oq13vie0l2tx" path="res://sprites/Flashlight.png" id="1_r4i0w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_623ue"]
+size = Vector2(36, 26)
+
+[node name="PickLantern" type="RigidBody2D"]
+mass = 1000.0
+gravity_scale = 0.0
+freeze = true
+script = ExtResource("1_0hs6m")
+
+[node name="Pivote" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivote"]
+scale = Vector2(0.105, 0.105)
+texture = ExtResource("1_r4i0w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 0)
+shape = SubResource("RectangleShape2D_623ue")

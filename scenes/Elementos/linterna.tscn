@@ -1,14 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://bicig0mpcdtku"]
+[gd_scene load_steps=4 format=3 uid="uid://bueuwlul18tb5"]
 
-[ext_resource type="Script" path="res://scenes/Elementos/pick_lantern.gd" id="1_0s2dk"]
 [ext_resource type="Texture2D" uid="uid://blgsl78qdj5et" path="res://sprites/Flashlight_wide_range_sprite_sheet.png" id="1_jxvac"]
+
+[sub_resource type="GDScript" id="GDScript_4lh7i"]
+script/source = "class_name Pickable
+extends RigidBody2D
+
+
+func pick(new_parent: Node2D, new_pos: Vector2):
+	process_mode = Node.PROCESS_MODE_DISABLED
+	_update_parent_and_pos(new_parent, new_pos)
+
+	
+
+func drop(new_parent: Node2D, new_pos: Vector2):
+	process_mode = Node.PROCESS_MODE_INHERIT
+	_update_parent_and_pos(new_parent, new_pos)
+
+
+func _update_parent_and_pos(new_parent: Node2D, new_pos: Vector2):
+	get_parent().remove_child(self)
+	new_parent.add_child(self)
+	global_position = new_pos
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ev12r"]
 size = Vector2(20, 8)
 
 [node name="linterna" type="RigidBody2D"]
 position = Vector2(345, 164)
-script = ExtResource("1_0s2dk")
+script = SubResource("GDScript_4lh7i")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

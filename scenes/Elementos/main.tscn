@@ -1,12 +1,34 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmtueo6xkvkuh"]
+[gd_scene load_steps=11 format=3 uid="uid://dmtueo6xkvkuh"]
 
 [ext_resource type="PackedScene" uid="uid://duhxccdq5wmyj" path="res://scenes/Elementos/player.tscn" id="1_2vbil"]
-[ext_resource type="PackedScene" uid="uid://bicig0mpcdtku" path="res://scenes/Elementos/linterna.tscn" id="3_ovpcr"]
 [ext_resource type="Texture2D" uid="uid://k58xxsxfywwm" path="res://resources/caverns-files-web/layers/background.png" id="4_udeyk"]
 [ext_resource type="Texture2D" uid="uid://dlc5umrgku56x" path="res://resources/caverns-files-web/layers/back-walls.png" id="5_7bh8n"]
 [ext_resource type="PackedScene" uid="uid://6hnyxe2j8idp" path="res://Linterna Profe/Luces v2sdas.tscn" id="6_kb87v"]
 [ext_resource type="Texture2D" uid="uid://nwbka5rxphyr" path="res://resources/caverns-files-web/layers/tiles.png" id="6_o2s4v"]
+[ext_resource type="PackedScene" uid="uid://d2j36i8ofhdue" path="res://scenes/Elementos/NewLantern.tscn" id="7_cdluc"]
 [ext_resource type="PackedScene" uid="uid://c1mg15ure05en" path="res://Linterna Profe/box.tscn" id="7_ph18t"]
+
+[sub_resource type="GDScript" id="GDScript_4lh7i"]
+script/source = "class_name Pickable
+extends RigidBody2D
+
+
+func pick(new_parent: Node2D, new_pos: Vector2):
+	process_mode = Node.PROCESS_MODE_DISABLED
+	_update_parent_and_pos(new_parent, new_pos)
+
+	
+
+func drop(new_parent: Node2D, new_pos: Vector2):
+	process_mode = Node.PROCESS_MODE_INHERIT
+	_update_parent_and_pos(new_parent, new_pos)
+
+
+func _update_parent_and_pos(new_parent: Node2D, new_pos: Vector2):
+	get_parent().remove_child(self)
+	new_parent.add_child(self)
+	global_position = new_pos
+"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b8nwi"]
 texture = ExtResource("6_o2s4v")
@@ -166,8 +188,10 @@ sources/0 = SubResource("TileSetAtlasSource_b8nwi")
 
 [node name="Main" type="Node2D"]
 
-[node name="linterna" parent="." instance=ExtResource("3_ovpcr")]
+[node name="linterna" type="RigidBody2D" parent="."]
 position = Vector2(345, 150)
+script = SubResource("GDScript_4lh7i")
+metadata/_edit_group_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.431373, 0.431373, 0.431373, 1)
@@ -210,3 +234,6 @@ scale = Vector2(0.435, 0.435)
 [node name="Box3" parent="." instance=ExtResource("7_ph18t")]
 position = Vector2(121, 89)
 scale = Vector2(0.435, 0.435)
+
+[node name="PickLantern" parent="." instance=ExtResource("7_cdluc")]
+position = Vector2(181, 144)
