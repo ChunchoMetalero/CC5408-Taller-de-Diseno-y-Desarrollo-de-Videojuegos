@@ -89,9 +89,7 @@ func _physics_process(delta: float) -> void:
 			if(t_position.y > bottom_vertex_ty):
 				bottom_vertex_ty = t_position.y
 				bottom_vertex = vertex
-		'''  --------------------------------- '''
-		''' Top/bottom vertex demasiado encima del perimetro del area'''
-		''' ---------------------------------- '''
+		
 		
 		var intersect_top
 		var intersect_bottom
@@ -112,12 +110,12 @@ func _physics_process(delta: float) -> void:
 				if bottom_vertex in vertices_fuera:
 					bottom_vertex = get_intersection_raycast(box,bottom_marker.position) 
 					intersect_bottom = to_global(bottom_marker.position)
+				'''  --------------------------------- '''
+				''' Top/bottom vertex demasiado encima del perimetro del area'''
 				if bottom_vertex == error_Vector or top_vertex == error_Vector:
 					print("AAAAAAA")
 					box.delete_collision()
 					continue
-				
-					
 					
 			'''  --------------------------------- '''
 			''' La caja es una caja ideal '''
