@@ -17,8 +17,7 @@ texture = ExtResource("1_qgk0m")
 metadata/_edit_lock_ = true
 
 [node name="Box" parent="." instance=ExtResource("3_i04nc")]
-position = Vector2(235, 63)
-rotation = -0.829031
+position = Vector2(242, 91)
 scale = Vector2(0.2, 0.2)
 script = ExtResource("5_e5t4h")
 
@@ -27,12 +26,11 @@ position = Vector2(85, 140)
 metadata/_edit_lock_ = true
 
 [node name="Box2" parent="." instance=ExtResource("3_i04nc")]
-position = Vector2(170, 160)
-rotation = -0.829031
-scale = Vector2(0.2, 0.2)
+position = Vector2(176, 152)
+scale = Vector2(0.100133, 0.109952)
 
 [node name="NoBOX" type="StaticBody2D" parent="."]
-position = Vector2(98, 86)
+position = Vector2(578, 230)
 scale = Vector2(0.2, 0.2)
 metadata/_edit_group_ = true
 

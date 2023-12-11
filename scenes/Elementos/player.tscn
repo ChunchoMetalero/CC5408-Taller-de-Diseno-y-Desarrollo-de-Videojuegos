@@ -1,8 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://duhxccdq5wmyj"]
+[gd_scene load_steps=27 format=3 uid="uid://duhxccdq5wmyj"]
 
 [ext_resource type="Script" path="res://scenes/Elementos/Player.gd" id="1_puclw"]
 [ext_resource type="Texture2D" uid="uid://crvg6knbevvu0" path="res://sprites/Char_3.png" id="2_oxces"]
-[ext_resource type="Script" path="res://scenes/Elementos/Rayo.gd" id="3_pt4q8"]
 [ext_resource type="Texture2D" uid="uid://blgsl78qdj5et" path="res://sprites/Flashlight_wide_range_sprite_sheet.png" id="4_u1amj"]
 [ext_resource type="Texture2D" uid="uid://dtcpwet52klsn" path="res://resources/2d_lights_and_shadows_neutral_point_light.webp" id="5_sh10a"]
 [ext_resource type="Script" path="res://scenes/Elementos/Pick_new_Lantern.gd" id="6_seklv"]
@@ -232,7 +231,7 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_g30kp"]
 states/drop/node = SubResource("AnimationNodeAnimation_xq0ou")
-states/drop/position = Vector2(525, 165)
+states/drop/position = Vector2(525, 164)
 states/idle/node = SubResource("AnimationNodeAnimation_n2er5")
 states/idle/position = Vector2(411, 100)
 states/lantern/node = SubResource("AnimationNodeAnimation_cv5th")
@@ -257,15 +256,6 @@ texture = ExtResource("2_oxces")
 hframes = 18
 vframes = 16
 frame = 79
-
-[node name="Rayo" type="RayCast2D" parent="Pivote"]
-position = Vector2(0, 4)
-script = ExtResource("3_pt4q8")
-metadata/_edit_group_ = true
-
-[node name="Line2D" type="Line2D" parent="Pivote"]
-position = Vector2(0, 4)
-width = 1.0
 
 [node name="animacion" type="Node2D" parent="Pivote"]
 visible = false

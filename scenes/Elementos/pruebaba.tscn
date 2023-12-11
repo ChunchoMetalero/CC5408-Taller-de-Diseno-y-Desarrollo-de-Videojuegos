@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://oe13clyorskw"]
+
+[ext_resource type="PackedScene" uid="uid://d2j36i8ofhdue" path="res://scenes/Elementos/NewLantern.tscn" id="1_r2dh7"]
+[ext_resource type="PackedScene" uid="uid://c1mg15ure05en" path="res://Linterna Profe/box.tscn" id="2_6ftr4"]
+[ext_resource type="Script" path="res://scenes/Elementos/prueba_linterna.gd" id="2_ojdgf"]
+
+[node name="pruebaba" type="Node2D"]
+position = Vector2(1, 0)
+
+[node name="PickLantern" parent="." instance=ExtResource("1_r2dh7")]
+position = Vector2(114, 130)
+script = ExtResource("2_ojdgf")
+
+[node name="Box2" parent="." instance=ExtResource("2_6ftr4")]
+position = Vector2(330, 136)
+scale = Vector2(0.129928, 0.133606)

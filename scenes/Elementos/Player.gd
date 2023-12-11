@@ -12,12 +12,8 @@ var current_pickable: PickLantern = null
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
-@onready var pivote: Node2D = $Pivote
-@onready var area: Area2D = $"../linterna/area"
-@onready var tomarlinterna = $"../linterna/area/tomarlinterna"
 @onready var collision = $CollisionShape2D
-@onready var rayo: RayCast2D = $Pivote/Rayo
-
+@onready var pivote: Node2D = $Pivote
 @onready var pick_new_lantern = $Pivote/Pick_new_Lantern
 
 @onready var pickable_marker = $Pivote/PickableMarker
@@ -30,11 +26,6 @@ func _ready() -> void:
 	add_to_group("player")
 	
 #MOVIMIENTO
-func tomar():
-	for body in area.get_overlapping_bodies():
-		if body.is_in_group("player"):
-			return true
-	return false
 	
 			
 func _physics_process(delta):
@@ -50,21 +41,19 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("interact"):
 		interact()
+		
+	if Input.is_action_just_pressed("light") and current_pickable:
+		current_pickable.encender()
 	
 	velocity.x = move_toward(velocity.x,speed * move_input, aceleration * delta)
 	
 	move_and_slide()
-
-
-
-
-
 	### ANIMACIONES	###
 	
 	if move_input != 0:
 		pivote.scale.x = sign_Move_input
 		
-	preload ("res://sprites/Flashlight_wide_range_sprite_sheet.png")
+	
 		
 
 
