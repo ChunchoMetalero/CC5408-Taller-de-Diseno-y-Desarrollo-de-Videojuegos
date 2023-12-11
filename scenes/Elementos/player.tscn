@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://duhxccdq5wmyj"]
+[gd_scene load_steps=33 format=3 uid="uid://duhxccdq5wmyj"]
 
 [ext_resource type="Script" path="res://scenes/Elementos/Player.gd" id="1_puclw"]
 [ext_resource type="Texture2D" uid="uid://crvg6knbevvu0" path="res://sprites/Char_3.png" id="2_oxces"]
@@ -78,6 +78,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_pwjsa"]
 resource_name = "idle"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -85,10 +86,10 @@ tracks/0/path = NodePath("Pivote/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 29.857),
 "update": 0,
-"values": [1]
+"values": [0, 1]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -193,13 +194,95 @@ tracks/2/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_rn6go"]
+resource_name = "crouch"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivote/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1.68179),
+"update": 1,
+"values": [17]
+}
+
+[sub_resource type="Animation" id="Animation_mvg3w"]
+resource_name = "crouch_walk"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivote/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+
+[sub_resource type="Animation" id="Animation_ppwsq"]
+resource_name = "walk"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivote/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 81]
+}
+
+[sub_resource type="Animation" id="Animation_gyrsy"]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivote/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 0.000471649, 1),
+"update": 1,
+"values": [5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_iq1fy"]
+resource_name = "fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivote/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 8, 9, 10]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rtege"]
 _data = {
 "RESET": SubResource("Animation_pmpkq"),
+"crouch": SubResource("Animation_rn6go"),
+"crouch_walk": SubResource("Animation_mvg3w"),
 "drop": SubResource("Animation_cd1yq"),
+"fall": SubResource("Animation_iq1fy"),
 "idle": SubResource("Animation_pwjsa"),
+"jump": SubResource("Animation_gyrsy"),
 "lantern": SubResource("Animation_w8ljs"),
-"light": SubResource("Animation_xi3su")
+"light": SubResource("Animation_xi3su"),
+"walk": SubResource("Animation_ppwsq")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xq0ou"]
@@ -216,37 +299,37 @@ animation = &"lantern"
 animation = &"light"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fpst0"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3w6al"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dks6p"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_spfj4"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ricm4"]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xkj76"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iaeuw"]
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_g30kp"]
-states/drop/node = SubResource("AnimationNodeAnimation_xq0ou")
-states/drop/position = Vector2(525, 165)
-states/idle/node = SubResource("AnimationNodeAnimation_n2er5")
-states/idle/position = Vector2(411, 100)
-states/lantern/node = SubResource("AnimationNodeAnimation_cv5th")
-states/lantern/position = Vector2(525, 98)
-states/light/node = SubResource("AnimationNodeAnimation_wygry")
-states/light/position = Vector2(525, 20)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_fpst0"), "idle", "lantern", SubResource("AnimationNodeStateMachineTransition_3w6al"), "lantern", "light", SubResource("AnimationNodeStateMachineTransition_dks6p"), "light", "lantern", SubResource("AnimationNodeStateMachineTransition_spfj4"), "light", "idle", SubResource("AnimationNodeStateMachineTransition_ricm4"), "lantern", "drop", SubResource("AnimationNodeStateMachineTransition_xkj76"), "drop", "idle", SubResource("AnimationNodeStateMachineTransition_iaeuw")]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3w6al"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iao4s"]
-radius = 9.0
-height = 44.0
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ricm4"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_g30kp"]
+states/Start/position = Vector2(-181, 84)
+states/drop/node = SubResource("AnimationNodeAnimation_xq0ou")
+states/drop/position = Vector2(24, 225)
+states/idle/node = SubResource("AnimationNodeAnimation_n2er5")
+states/idle/position = Vector2(122, 77)
+states/lantern/node = SubResource("AnimationNodeAnimation_cv5th")
+states/lantern/position = Vector2(139, 225)
+states/light/node = SubResource("AnimationNodeAnimation_wygry")
+states/light/position = Vector2(266, 220)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_fpst0"), "lantern", "light", SubResource("AnimationNodeStateMachineTransition_dks6p"), "light", "lantern", SubResource("AnimationNodeStateMachineTransition_spfj4"), "lantern", "drop", SubResource("AnimationNodeStateMachineTransition_xkj76"), "drop", "idle", SubResource("AnimationNodeStateMachineTransition_iaeuw"), "idle", "lantern", SubResource("AnimationNodeStateMachineTransition_3w6al"), "light", "idle", SubResource("AnimationNodeStateMachineTransition_ricm4")]
+graph_offset = Vector2(-555.155, 35.0336)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87ukw"]
+size = Vector2(48, 17)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-position = Vector2(228, 147)
+position = Vector2(226, 148)
 script = ExtResource("1_puclw")
 metadata/_edit_group_ = true
 
@@ -259,11 +342,13 @@ vframes = 16
 frame = 79
 
 [node name="Rayo" type="RayCast2D" parent="Pivote"]
+visible = false
 position = Vector2(0, 4)
 script = ExtResource("3_pt4q8")
 metadata/_edit_group_ = true
 
 [node name="Line2D" type="Line2D" parent="Pivote"]
+visible = false
 position = Vector2(0, 4)
 width = 1.0
 
@@ -288,17 +373,21 @@ energy = 16.0
 texture = ExtResource("5_sh10a")
 
 [node name="Pick_new_Lantern" type="Area2D" parent="Pivote"]
+visible = false
 script = ExtResource("6_seklv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivote/Pick_new_Lantern"]
+visible = false
 position = Vector2(12.155, 9.02)
 scale = Vector2(1, 1.255)
 shape = SubResource("RectangleShape2D_eq3rb")
 
 [node name="PickableMarker" type="Marker2D" parent="Pivote"]
+visible = false
 position = Vector2(22.34, 0)
 
 [node name="PickableDropMarker" type="Marker2D" parent="Pivote"]
+visible = false
 position = Vector2(24.655, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -311,11 +400,12 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_g30kp")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_iao4s")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Menu de pausa" parent="." instance=ExtResource("7_a16jx")]
 visible = false
 size_flags_vertical = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2.5)
+shape = SubResource("RectangleShape2D_87ukw")
