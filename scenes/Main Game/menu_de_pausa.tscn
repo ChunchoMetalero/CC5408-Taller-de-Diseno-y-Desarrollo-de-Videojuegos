@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjkxmhqddvfbm"]
+[gd_scene load_steps=4 format=3 uid="uid://cjkxmhqddvfbm"]
 
 [ext_resource type="Script" path="res://Menu de pausa.gd" id="1_6kk7l"]
+[ext_resource type="Theme" uid="uid://bdft7gxksvusd" path="res://Themes/texto.tres" id="1_l7c55"]
 [ext_resource type="PackedScene" uid="uid://pa53ixw20x3l" path="res://scenes/Main Game/menu_principal.tscn" id="2_npbk4"]
 
 [node name="Menu de pausa" type="MarginContainer"]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_l7c55")
 script = ExtResource("1_6kk7l")
 menu = ExtResource("2_npbk4")
 
@@ -21,6 +23,7 @@ size_flags_vertical = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
