@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://kj8yj363u3ee"]
+[gd_scene load_steps=2 format=3 uid="uid://kj8yj363u3ee"]
 
-[ext_resource type="Theme" uid="uid://bdft7gxksvusd" path="res://Themes/texto.tres" id="1_3sg2u"]
 [ext_resource type="Script" path="res://Niveles.gd" id="1_lh1ul"]
 
 [node name="Niveles" type="Control"]
@@ -10,7 +9,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_3sg2u")
 script = ExtResource("1_lh1ul")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
