@@ -1,4 +1,4 @@
-extends Box
+extends PickLantern
 
 
 func _physics_process(delta: float) -> void:

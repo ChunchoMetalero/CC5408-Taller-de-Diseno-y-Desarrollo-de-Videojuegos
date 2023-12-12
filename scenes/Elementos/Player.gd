@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
-var speed = 250
-var gravity = 400
-var jump_speed = 250
+var speed = 200
+var gravity = 450
+var jump_speed = 210
 var aceleration = 10000
 
 var current_pickable: PickLantern = null
-
+var Idle_cshape = preload("res://Themes/CollisionShapes/Idle.tres")
+var Crouch_cshape = preload("res://Themes/CollisionShapes/Crouch.tres")
+var CrouchWalk_cshape = preload("res://Themes/CollisionShapes/CrouchWalk.tres")
 var is_crouching = false
 
 #REFERENCIAS
@@ -19,27 +21,25 @@ var is_crouching = false
 @onready var tomarlinterna = $"../linterna/area/tomarlinterna"
 @onready var collision = $CollisionShanimation_playere2D
 @onready var rayo: RayCast2D = $Pivote/Rayo
-
-
+@onready var collision = $CollisionShape2D
+@onready var pivote: Node2D = $Pivote
 @onready var pick_new_lantern = $Pivote/Pick_new_Lantern
 
 @onready var pickable_marker = $Pivote/PickableMarker
 @onready var pickable_drop_marker = $Pivote/PickableDropMarker
 
-var Idle_cshape = preload("res://Themes/CollisionShapes/Idle.tres")
-var Crouch_cshape = preload("res://Themes/CollisionShapes/Crouch.tres")
-var CrouchWalk_cshape = preload("res://Themes/CollisionShapes/CrouchWalk.tres")
+
 func _ready() -> void:
 	animation_tree.active = true
 	add_to_group("player")
 	
 #MOVIMIENTO
+
 func tomar():
 	for body in area.get_overlanimation_playerping_bodies():
 		if body.is_in_group("player"):
 			return true
 	return false
-
 
 			
 func _physics_process(delta):
@@ -55,6 +55,9 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("interact"):
 		interact()
+		
+	if Input.is_action_just_pressed("light") and current_pickable:
+		current_pickable.encender()
 	
 		
 	if Input.is_action_pressed("crouch"):
@@ -66,21 +69,15 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	update_animations()
-
-
-
-
-
-
+  
 	### ANIMACIONES	###
 
-	
 	
 	if move_input != 0:
 		pivote.scale.x = sign_Move_input
 		playback.travel("walk")
 		
-	preload ("res://sprites/Flashlight_wide_range_sprite_sheet.png")
+	
 		
 func update_animations():
 	var move_input = Input.get_axis("left","right")
