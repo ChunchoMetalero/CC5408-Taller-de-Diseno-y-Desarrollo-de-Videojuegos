@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://pa53ixw20x3l"]
+[gd_scene load_steps=6 format=3 uid="uid://pa53ixw20x3l"]
 
 [ext_resource type="Script" path="res://scenes/Main Game/menu_principal.gd" id="1_jtpnd"]
 [ext_resource type="Theme" uid="uid://m5wwgto5xgar" path="res://Themes/titulo.tres" id="1_thtou"]
 [ext_resource type="Texture2D" uid="uid://b27ncy7pin625" path="res://sprites/Fondo_ardilla.jpg" id="2_cyc4h"]
+[ext_resource type="Theme" path="res://Themes/texto.tres" id="4_flbu1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qp0yg"]
 
@@ -46,6 +47,7 @@ anchor_bottom = 1.0
 offset_top = -101.0
 offset_right = 140.0
 grow_vertical = 0
+theme = ExtResource("4_flbu1")
 
 [node name="Iniciar" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -69,6 +71,7 @@ offset_left = -142.0
 offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("4_flbu1")
 
 [node name="Ajustes" type="Button" parent="HBoxContainer"]
 layout_mode = 2

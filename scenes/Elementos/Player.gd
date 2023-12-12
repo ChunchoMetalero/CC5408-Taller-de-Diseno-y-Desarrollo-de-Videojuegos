@@ -4,9 +4,11 @@ var speed = 200
 var gravity = 450
 var jump_speed = 210
 var aceleration = 10000
-
+var is_crouching = false
 var current_pickable: PickLantern = null
-
+var Idle_cshape = preload("res://Themes/CollisionShapes/Idle.tres")
+var Crouch_cshape = preload("res://Themes/CollisionShapes/Crouch.tres")
+var CrouchWalk_cshape = preload("res://Themes/CollisionShapes/CrouchWalk.tres")
 
 #REFERENCIAS
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -15,7 +17,7 @@ var current_pickable: PickLantern = null
 @onready var collision = $CollisionShape2D
 @onready var pivote: Node2D = $Pivote
 @onready var pick_new_lantern = $Pivote/Pick_new_Lantern
-
+@onready var collision_shape_2d = $CollisionShape2D
 @onready var pickable_marker = $Pivote/PickableMarker
 @onready var pickable_drop_marker = $Pivote/PickableDropMarker
 
@@ -44,10 +46,14 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("light") and current_pickable:
 		current_pickable.encender()
-	
+	if Input.is_action_pressed("crouch"):
+		crouch()
+	elif Input.is_action_just_released("crouch"):
+		stand()
 	velocity.x = move_toward(velocity.x,speed * move_input, aceleration * delta)
 	
 	move_and_slide()
+	update_animations()
 	### ANIMACIONES	###
 	
 	if move_input != 0:
@@ -55,6 +61,30 @@ func _physics_process(delta):
 		
 	
 		
+func update_animations():
+	var move_input = Input.get_axis("left","right")
+	if is_on_floor():
+		if move_input == 0:
+			if is_crouching:
+				animation_player.play("crouch")
+			else:
+				animation_player.play("idle")
+		else:
+			if is_crouching:
+				animation_player.play("crouch_walk")
+			else:
+				animation_player.play("walk")
+	else:
+		if is_crouching == false:
+			if velocity.y < 0:
+				animation_player.play("jump")
+			elif velocity.y > 0:
+				animation_player.play("fall")
+		else:
+			if move_input == 0:
+				animation_player.play("crouch")
+			else:
+				animation_player.play("crouch_walk")
 
 
 
@@ -69,5 +99,21 @@ func interact():
 		pickable.global_rotation = global_rotation
 		pickable.pick(pivote, pickable_marker.global_position)
 
+func crouch():
+	var move_input = Input.get_axis("left","right")
+	if is_crouching:
+		return
+	is_crouching = true
+	if move_input == 0:
+		collision_shape_2d.shape = Crouch_cshape
+	else:
+		collision_shape_2d.shape = CrouchWalk_cshape
+
+
+func stand():
+	if is_crouching == false:
+		return
+	is_crouching = false
+	collision_shape_2d.shape = Idle_cshape
 
 

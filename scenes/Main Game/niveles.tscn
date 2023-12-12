@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://kj8yj363u3ee"]
+[gd_scene load_steps=3 format=3 uid="uid://kj8yj363u3ee"]
 
 [ext_resource type="Script" path="res://Niveles.gd" id="1_lh1ul"]
+[ext_resource type="Theme" path="res://Themes/texto.tres" id="2_4juqb"]
 
 [node name="Niveles" type="Control"]
 layout_mode = 3
@@ -18,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_4juqb")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -39,8 +41,8 @@ size_flags_vertical = 8
 text = "Menu Principal
 "
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 1" to="." method="_on__pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 1" to="." method="_on_nivel_1_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 2" to="." method="_on__pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 1" to="." method="_on__pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 2" to="." method="_on_nivel_2_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 2" to="." method="_on__pressed"]
 [connection signal="pressed" from="MarginContainer/Volver" to="." method="_on_volver_pressed"]
