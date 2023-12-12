@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-var speed = 250
-var gravity = 400
-var jump_speed = 250
+var speed = 200
+var gravity = 450
+var jump_speed = 210
 var aceleration = 10000
 
 var current_pickable: PickLantern = null
