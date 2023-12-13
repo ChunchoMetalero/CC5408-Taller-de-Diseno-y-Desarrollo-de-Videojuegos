@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2j36i8ofhdue"]
+[gd_scene load_steps=5 format=3 uid="uid://d2j36i8ofhdue"]
 
 [ext_resource type="Script" path="res://scenes/Elementos/NewLantern.gd" id="1_0hs6m"]
 [ext_resource type="Texture2D" uid="uid://oq13vie0l2tx" path="res://sprites/Flashlight.png" id="1_r4i0w"]
-[ext_resource type="Texture2D" uid="uid://b3qlppn3kw1mc" path="res://icon.svg" id="2_3u881"]
 [ext_resource type="PackedScene" uid="uid://dwv5kn8pv8mya" path="res://Linterna Profe/luz.tscn" id="3_giw7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_623ue"]
@@ -13,12 +12,6 @@ mass = 1000.0
 gravity_scale = 0.0
 freeze = true
 script = ExtResource("1_0hs6m")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(754, 231)
-scale = Vector2(15.4844, 5.55469)
-texture = ExtResource("2_3u881")
 
 [node name="Pivote" type="Node2D" parent="."]
 
