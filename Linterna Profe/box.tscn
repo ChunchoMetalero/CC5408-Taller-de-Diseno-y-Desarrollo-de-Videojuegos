@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c1mg15ure05en"]
 
 [ext_resource type="Script" path="res://Linterna Profe/box.gd" id="1_x6jh8"]
-[ext_resource type="Texture2D" uid="uid://b3qlppn3kw1mc" path="res://icon.svg" id="2_fuw2w"]
+[ext_resource type="Texture2D" uid="uid://djh136ql1ls73" path="res://sprites/PCA_All.png" id="2_qusu6"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tlcw6"]
 polygon = PackedVector2Array(-64, -64, -64, 64, 64, 64, 64, -64)
@@ -15,7 +15,10 @@ collision_mask = 5
 script = ExtResource("1_x6jh8")
 
 [node name="Fondo" type="Sprite2D" parent="."]
-texture = ExtResource("2_fuw2w")
+scale = Vector2(8.135, 8.135)
+texture = ExtResource("2_qusu6")
+region_enabled = true
+region_rect = Rect2(192.106, 79.8369, 15.6751, 15.8103)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_tlcw6")
