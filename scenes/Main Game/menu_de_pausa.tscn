@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Menu de pausa.gd" id="1_6kk7l"]
 [ext_resource type="PackedScene" uid="uid://pa53ixw20x3l" path="res://scenes/Main Game/menu_principal.tscn" id="2_npbk4"]
-[ext_resource type="Theme" path="res://Themes/texto.tres" id="3_vrbpb"]
+[ext_resource type="Theme" uid="uid://bdft7gxksvusd" path="res://Themes/texto.tres" id="3_vrbpb"]
 
 [node name="Menu de pausa" type="MarginContainer"]
 process_mode = 3

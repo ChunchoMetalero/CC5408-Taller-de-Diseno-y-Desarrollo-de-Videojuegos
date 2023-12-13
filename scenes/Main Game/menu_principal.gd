@@ -15,6 +15,8 @@ func _on_iniciar_pressed():
 	get_tree().change_scene_to_file("res://scenes/Levels/Level0.tscn")
 	
 
+func _on_créditos_pressed():
+	get_tree().change_scene_to_file("res://scenes/Main Game/créditos.tscn")
 
 func _on_salir_pressed():
 	get_tree().quit()

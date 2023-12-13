@@ -10,7 +10,10 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("interact"):
 		for body in characters_inside:
-			LevelManager.next_level()
+			if LevelManager.levels.size() < 4 :
+				LevelManager.next_level()
+			else:
+				LevelManager.credits
 
 func _on_body_entered(body: Node):
 	if body is CharacterBody2D:
