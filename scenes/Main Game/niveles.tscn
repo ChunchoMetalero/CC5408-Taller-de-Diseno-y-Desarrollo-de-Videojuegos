@@ -26,21 +26,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Nivel 0" type="Button" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "Nivel 0"
-
 [node name="Nivel 1" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Nivel 1"
+text = "Nivel 1 (Main)"
 
 [node name="Nivel 2" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Nivel 2"
-
-[node name="Nivel 3" type="Button" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "Nivel 3"
+text = "Nivel 2 (Luces)"
 
 [node name="Volver" type="Button" parent="MarginContainer"]
 layout_mode = 2
@@ -49,8 +41,8 @@ size_flags_vertical = 8
 text = "Menu Principal
 "
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 0" to="." method="_on_nivel_0_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 1" to="." method="_on__pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 1" to="." method="_on_nivel_1_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 2" to="." method="_on__pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 2" to="." method="_on_nivel_2_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 3" to="." method="_on_nivel_3_pressed"]
 [connection signal="pressed" from="MarginContainer/Volver" to="." method="_on_volver_pressed"]

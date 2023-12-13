@@ -12,6 +12,9 @@
 [node name="Level1" type="Node2D"]
 metadata/_edit_horizontal_guides_ = []
 
+[node name="Player" parent="." instance=ExtResource("1_35n37")]
+position = Vector2(128, 246)
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -52,8 +55,6 @@ position = Vector2(5044, -45)
 position = Vector2(2330, 101)
 scale = Vector2(0.302, 0.302)
 
-[node name="Sprite2D" type="Sprite2D" parent="Box"]
-
 [node name="Box2" parent="." instance=ExtResource("7_6halk")]
 position = Vector2(2593, 60)
 scale = Vector2(0.302, 0.302)
@@ -68,6 +69,3 @@ scale = Vector2(0.302, 0.302)
 [node name="Box4" parent="." instance=ExtResource("7_6halk")]
 position = Vector2(4668, -19)
 scale = Vector2(0.302, 0.302)
-
-[node name="Player" parent="." instance=ExtResource("1_35n37")]
-position = Vector2(128, 246)
