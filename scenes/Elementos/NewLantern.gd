@@ -31,8 +31,10 @@ func encender():
 	print("Señal")
 	if lantern.is_physics_processing():#Apagar
 		print("Apagar")
+		lantern.set_enabled(false)
 		lantern.set_physics_process(false)
 		lantern.borrar_collision()
 	else:#Encender
 		print("Encender")
+		lantern.set_enabled(true)
 		lantern.set_physics_process(true)

@@ -22,6 +22,7 @@ texture = ExtResource("1_r4i0w")
 [node name="Lantern" parent="Pivote" instance=ExtResource("3_giw7h")]
 position = Vector2(-67, 0)
 scale = Vector2(1.60981, 0.455425)
+range_item_cull_mask = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 0)
