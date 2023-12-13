@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dcl2t7yr0vnqf"]
 
 [ext_resource type="Theme" uid="uid://bdft7gxksvusd" path="res://Themes/texto.tres" id="1_fn3un"]
-[ext_resource type="Texture2D" uid="uid://bp7acgcton4ty" path="res://sprites/Cat Adventure.png" id="2_p56f1"]
+[ext_resource type="Texture2D" uid="uid://naftc6b7epqm" path="res://sprites/Cat Adventure.png" id="2_o6wfd"]
 [ext_resource type="PackedScene" uid="uid://cjkxmhqddvfbm" path="res://scenes/Main Game/menu_de_pausa.tscn" id="3_opvju"]
 
 [sub_resource type="Animation" id="Animation_43mt1"]
@@ -59,7 +59,7 @@ motion_mode = 1
 up_direction = Vector2(1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/CharacterBody2D"]
-texture = ExtResource("2_p56f1")
+texture = ExtResource("2_o6wfd")
 hframes = 8
 vframes = 15
 
