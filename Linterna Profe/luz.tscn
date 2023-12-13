@@ -5,23 +5,24 @@
 [ext_resource type="Texture2D" uid="uid://b3qlppn3kw1mc" path="res://icon.svg" id="3_2so02"]
 
 [node name="Lantern" type="PointLight2D"]
+range_item_cull_mask = 0
 shadow_enabled = true
 shadow_item_cull_mask = 4
 texture = ExtResource("1_fhem3")
 texture_scale = 2.0
 script = ExtResource("2_7ck37")
 
-[node name="Cono" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(1941, 1200)
-scale = Vector2(41.5215, 29.2256)
-texture = ExtResource("3_2so02")
-
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 position = Vector2(1, 0)
 polygon = PackedVector2Array(49, -26, 204, -103, 229, -78, 246, -50, 255, -14, 255, 15, 246, 50, 227, 81, 204, 103, 49, 26)
+
+[node name="Cono" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1869, 1272)
+scale = Vector2(41.5215, 29.2256)
+texture = ExtResource("3_2so02")
 
 [node name="Line2D" type="Line2D" parent="."]
 visible = false
@@ -31,7 +32,6 @@ points = PackedVector2Array(0, 0, 256, 0)
 width = 1.0
 
 [node name="DebugLine" type="Line2D" parent="."]
-visible = false
 
 [node name="TopMarker" type="Marker2D" parent="."]
 position = Vector2(206, -103)
