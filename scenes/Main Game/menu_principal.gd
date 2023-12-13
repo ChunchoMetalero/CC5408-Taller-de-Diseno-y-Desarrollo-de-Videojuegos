@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_iniciar_pressed():
-	get_tree().change_scene_to_file("res://scenes/Elementos/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/Levels/Level0.tscn")
 	
 
 
