@@ -11,22 +11,16 @@ func _process(delta):
 	pass
 
 
-func _on_volver_pressed():
-	get_tree().change_scene_to_file("res://scenes/Main Game/menu_principal.tscn")
-
-
-func _on_nivel_0_pressed():
-	get_tree().change_scene_to_file("res://scenes/Levels/Level0.tscn")
 
 
 
 func _on_nivel_1_pressed():
-	get_tree().change_scene_to_file("res://scenes/Levels/Level1.tscn")
+	get_tree().change_scene_to_file("res://scenes/Elementos/main.tscn")
 
 
 func _on_nivel_2_pressed():
-	get_tree().change_scene_to_file("res://scenes/Levels/Level2.tscn")
+	get_tree().change_scene_to_file("res://Linterna Profe/Luces v2.tscn")
 
 
-func _on_nivel_3_pressed():
-	get_tree().change_scene_to_file("res://scenes/Levels/Level3.tscn")
+func _on_volver_pressed():
+	get_tree().change_scene_to_file("res://scenes/Main Game/menu_principal.tscn")
