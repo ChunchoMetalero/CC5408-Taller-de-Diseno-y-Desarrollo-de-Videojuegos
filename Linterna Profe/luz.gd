@@ -16,6 +16,7 @@ const TOLERANCE = 0.1
 var error_Vector = Vector2(-9999999,-9999999)
 
 func _ready() -> void:
+	set_enabled(false)
 	set_physics_process(false)
 	''' Conexión y desconexión del area con la escena'''
 	area_2d.body_entered.connect(_on_body_entered)
