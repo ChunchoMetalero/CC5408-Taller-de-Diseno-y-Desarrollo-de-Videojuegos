@@ -14,9 +14,6 @@ size = Vector2(20, 246)
 
 [node name="Level0" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_4xqno")]
-position = Vector2(-129, 204)
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -76,3 +73,6 @@ position = Vector2(610, 331)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrera2"]
 position = Vector2(1340, -39)
 shape = SubResource("RectangleShape2D_k30dn")
+
+[node name="Player" parent="." instance=ExtResource("1_4xqno")]
+position = Vector2(-129, 204)

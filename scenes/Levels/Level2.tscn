@@ -11,9 +11,6 @@
 
 [node name="Level1" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_rrkke")]
-position = Vector2(2293, 328)
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -87,3 +84,6 @@ scale = Vector2(0.25, 0.25)
 [node name="Box9" parent="." instance=ExtResource("7_vtwtw")]
 position = Vector2(2134, 33)
 scale = Vector2(0.302, 0.302)
+
+[node name="Player" parent="." instance=ExtResource("1_rrkke")]
+position = Vector2(2293, 328)
