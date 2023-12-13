@@ -22,3 +22,7 @@ func _on_salir_pressed():
 
 func _on_niveles_pressed():
 	get_tree().change_scene_to_file("res://scenes/Main Game/niveles.tscn")
+
+
+func _on_créditos_pressed():
+	get_tree().change_scene_to_file("res://scenes/Main Game/créditos.tscn")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://kj8yj363u3ee"]
 
 [ext_resource type="Script" path="res://Niveles.gd" id="1_lh1ul"]
-[ext_resource type="Theme" path="res://Themes/texto.tres" id="2_4juqb"]
+[ext_resource type="Theme" uid="uid://bdft7gxksvusd" path="res://Themes/texto.tres" id="2_4juqb"]
 
 [node name="Niveles" type="Control"]
 layout_mode = 3
@@ -26,13 +26,21 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="Nivel 0" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Nivel 0"
+
 [node name="Nivel 1" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Nivel 1 (Main)"
+text = "Nivel 1"
 
 [node name="Nivel 2" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Nivel 2 (Luces)"
+text = "Nivel 2"
+
+[node name="Nivel 3" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Nivel 3"
 
 [node name="Volver" type="Button" parent="MarginContainer"]
 layout_mode = 2
@@ -41,8 +49,8 @@ size_flags_vertical = 8
 text = "Menu Principal
 "
 
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 0" to="." method="_on_nivel_0_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 1" to="." method="_on_nivel_1_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 1" to="." method="_on__pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 2" to="." method="_on_nivel_2_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 2" to="." method="_on__pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Nivel 3" to="." method="_on_nivel_3_pressed"]
 [connection signal="pressed" from="MarginContainer/Volver" to="." method="_on_volver_pressed"]

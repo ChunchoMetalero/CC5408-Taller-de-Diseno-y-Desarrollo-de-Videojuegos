@@ -73,10 +73,6 @@ grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("4_flbu1")
 
-[node name="Ajustes" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-text = "Ajustes"
-
 [node name="Créditos" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 text = "Créditos"
@@ -84,3 +80,4 @@ text = "Créditos"
 [connection signal="pressed" from="VBoxContainer/Iniciar" to="." method="_on_iniciar_pressed"]
 [connection signal="pressed" from="VBoxContainer/Niveles" to="." method="_on_niveles_pressed"]
 [connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="HBoxContainer/Créditos" to="." method="_on_créditos_pressed"]
